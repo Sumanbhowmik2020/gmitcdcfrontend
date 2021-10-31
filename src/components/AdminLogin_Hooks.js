@@ -1,33 +1,45 @@
 import React, { useState } from 'react';
 import Navbars from "./Navbars";
 import { Button, Row, Form, Col } from 'react-bootstrap';
+import axios from 'axios';
 
 function AdminLoginHooks(props) {
-  const [adminuserid, setAdminUserId] = useState("");
-  const [adminpassword, setAdminPassword] = useState("");;
+
+
+  const [eadminemail, setAdminEmail] = useState("");
+  const [eadminpassword, setAdminPassword] = useState("");;
   const [msg, setMessage] = useState("");;
 
-  const onChangeAdminUserId = (e) => setAdminUserId(e.target.value);
+  const onChangeAdminEmail = (e) => setAdminEmail(e.target.value);
+  const onChangeAdminPassword = (e) => setAdminPassword(e.target.value);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    console.log(`EMAIL: ${adminuserid}`);
-    console.log(`PASS: ${adminpassword}`);
+    console.log(`EMAIL: ${eadminemail}`);
+    console.log(`PASSWORD: ${eadminpassword}`);
 
-    if ((adminuserid === "admin") && (adminpassword === "admin")) {
-      sessionStorage.setItem("Key_Veriable", 'ADMIN')
+    const adminlogininfo = {
+      adminemail: eadminemail,
+      adminpassword: eadminpassword
+    }
+
+    axios.post('http://localhost:4500/admin/logincheck', adminlogininfo)
+      .then(res => {
+        console.log(res.data)
+        sessionStorage.setItem("Key_Veriable", 'ADMIN')
       setMessage('WELCOME ADMIN')
       props.history.push('/adminafterlogin')
+      })
+      .catch(err => {
+        console.log(err)
+        setMessage('INVALID UID OR PASSWORD')
+      })
 
-    }
-    else
-      setMessage('INVALID UID OR PASSWORD')
-
-    setAdminUserId('')
+    setAdminEmail('')
     setAdminPassword('')
-
   }
+
 
   return (
     <div style={{ backgroundColor: "#F0EEBA" }}>
@@ -52,8 +64,8 @@ function AdminLoginHooks(props) {
                 <Col md='12'>
                 <div>
                   <label><b>User ID</b></label>
-                  <input type="text" className=" form-control form-round" value={adminuserid}
-                    onChange={onChangeAdminUserId} placeholder="ADMIN USER ID"
+                  <input type="text" className=" form-control form-round" value={eadminemail}
+                    onChange={onChangeAdminEmail} placeholder="ADMIN USER ID"
                     required />
                 </div>
                 </Col>
@@ -64,8 +76,8 @@ function AdminLoginHooks(props) {
                 <Col md='12'>
                 <div>
                   <label><b>Password</b></label>
-                  <input type="password" className=" form-control form-round" value={adminpassword}
-                    onChange={(e) => setAdminPassword(e.target.value)} placeholder="ADMIN PASSWORD"
+                  <input type="password" className=" form-control form-round" value={eadminpassword}
+                    onChange={onChangeAdminPassword} placeholder="ADMIN PASSWORD"
                     required />
                 </div>
                 </Col>
