@@ -24,7 +24,7 @@ function AdminLoginHooks(props) {
       adminpassword: eadminpassword
     }
 
-    axios.post('http://localhost:4500/admin/logincheck', adminlogininfo)
+    axios.post('https://backendcdcgmit.herokuapp.com/admin/logincheck', adminlogininfo)
       .then(res => {
         console.log(res.data)
         sessionStorage.setItem("Key_Veriable", 'ADMIN')
