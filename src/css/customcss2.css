@@ -1,0 +1,10 @@
+.shadow-box-example {
+    height: 100px;
+    width: 130px;
+    border-radius: 20%;
+     background-color: #64b5f6; 
+  }
+
+  .margin-control {
+    margin: 7%;
+  }
