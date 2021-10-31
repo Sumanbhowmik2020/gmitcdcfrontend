@@ -8,7 +8,7 @@ function DisplayAll() {
 
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('http://localhost:4500/student')
+    axios.get('https://backendcdcgmit.herokuapp.com/student')
       .then(response => {
         console.log(response.data)
         setStudentList(response.data);

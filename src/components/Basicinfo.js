@@ -72,7 +72,7 @@ function Basicinfo(props) {
             studentprofilepic: eprofilepic,
         }
 
-        axios.post('http://localhost:4500/basicinfo/register', studentbasicinfo)
+        axios.post('https://backendcdcgmit.herokuapp.com/basicinfo/register', studentbasicinfo)
             .then(res => {
                 // console.log(res.data)
                 // sessionStorage.setItem("useremail", res.data[0].empemail)

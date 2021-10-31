@@ -11,7 +11,7 @@ function Viewhr() {
 
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('http://localhost:4500/hr')
+    axios.get('https://backendcdcgmit.herokuapp.com/hr')
       .then(response => {
         console.log(response.data)
         setHrList(response.data);

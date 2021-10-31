@@ -37,7 +37,7 @@ let Login = (props) => {
       studentpassword: epassword
     }
 
-    axios.post('http://localhost:4500/student/logincheck', studentlogininfo)
+    axios.post('https://backendcdcgmit.herokuapp.com/student/logincheck', studentlogininfo)
       .then(res => {
         console.log(res.data)
         sessionStorage.setItem("Key_Veriable", 'USER')

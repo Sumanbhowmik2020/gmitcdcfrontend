@@ -10,7 +10,7 @@ function Skill(email) {
 
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('http://localhost:4500/skillinfo/search/' +authuser)
+    axios.get('https://backendcdcgmit.herokuapp.com/skillinfo/search/' +authuser)
       .then(response => {
         console.log(response.data)
         setStudentskillList(response.data);

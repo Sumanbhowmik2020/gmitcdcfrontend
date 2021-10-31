@@ -62,7 +62,7 @@ let Signup = () => {
 
         }
 
-        axios.post('http://localhost:4500/student/register', studentinfo)
+        axios.post('https://backendcdcgmit.herokuapp.com/student/register', studentinfo)
             .then(res => {
                 // console.log(res.data)
                 // window.alert("Registration Sucessful");

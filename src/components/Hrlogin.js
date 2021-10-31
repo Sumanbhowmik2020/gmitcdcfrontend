@@ -37,7 +37,7 @@ let Hrlogin = (props) => {
       hrpassword: epassword
     }
 
-    axios.post('http://localhost:4500/hr/logincheck', hrlogininfo)
+    axios.post('https://backendcdcgmit.herokuapp.com/hr/logincheck', hrlogininfo)
       .then(res => {
         console.log(res.data)
         sessionStorage.setItem("Key_Veriable", 'HR')

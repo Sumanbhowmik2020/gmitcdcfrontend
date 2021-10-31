@@ -19,7 +19,7 @@ function Searchresume() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
-    axios.get('http://localhost:4500/skillinfo/skillsearch/' + eskill)
+    axios.get('https://backendcdcgmit.herokuapp.com/skillinfo/skillsearch/' + eskill)
       .then(res => {
         console.log(res.data)
         setStudentList(res.data)

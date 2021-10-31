@@ -9,7 +9,7 @@ function PlacementStudent() {
     const [placementlist, setPlacementList] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:4500/placementinfo/home')
+        axios.get('https://backendcdcgmit.herokuapp.com/placementinfo/home')
             .then(response => {
                 console.log(response.data)
                 setPlacementList(response.data);

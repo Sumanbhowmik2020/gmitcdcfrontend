@@ -70,7 +70,7 @@ function UpdateBasicinfo(props) {
             studentemail: eemail,
            // studentprofilepic: eprofilepic,
         }
-        axios.put('http://localhost:4500/basicinfo/update', studentbasicinfo)
+        axios.put('https://backendcdcgmit.herokuapp.com/basicinfo/update', studentbasicinfo)
             .then(res => {
                 console.log(res.data)
                 setMessage('BASIC INFO UPDATED')
@@ -94,7 +94,7 @@ function UpdateBasicinfo(props) {
         let studentemailid = sessionStorage.getItem('useremail')
         if (studentemailid == null)
             studentemailid = props.email
-        axios.get('http://localhost:4500/basicinfo/search/' + studentemailid)
+        axios.get('https://backendcdcgmit.herokuapp.com/basicinfo/search/' + studentemailid)
             .then(response => {
                 console.log(response.data)
                 const { studentname, studentemail, studentmobile, studentdob, studentgender, studentgithub, studentlinkedin } = response.data[0]

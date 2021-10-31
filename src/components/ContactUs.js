@@ -37,7 +37,7 @@ function ContactUs() {
           
       }
 
-      axios.post('http://localhost:4500/contact/register', contactinfo)
+      axios.post('https://backendcdcgmit.herokuapp.com/contact/register', contactinfo)
           .then(res => {
               console.log(res.data)
               window.alert("Registration Sucessful");

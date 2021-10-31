@@ -40,7 +40,7 @@ function UpdateProfile(props) {
 
         }
 
-        axios.put('http://localhost:4500/student/update', studentinfo)
+        axios.put('https://backendcdcgmit.herokuapp.com/student/update', studentinfo)
             .then(res => {
                 console.log(res.data)
                 setMessage('PROFILE UPDATED')
@@ -63,7 +63,7 @@ function UpdateProfile(props) {
         let studentemailid = sessionStorage.getItem('useremail')
         if (studentemailid == null)
             studentemailid = props.email
-        axios.get('http://localhost:4500/student/search/' + studentemailid)
+        axios.get('https://backendcdcgmit.herokuapp.com/student/search/' + studentemailid)
             .then(response => {
                 console.log(response.data)
                 const { studentname, studentemail, studentmobile, studentdepartment, studentrollnumber, studentsession, studentpassword } = response.data[0]

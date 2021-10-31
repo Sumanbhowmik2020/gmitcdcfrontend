@@ -12,7 +12,7 @@ function Viewplacement() {
 
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('http://localhost:4500/placementinfo/')
+    axios.get('https://backendcdcgmit.herokuapp.com/placementinfo/')
       .then(response => {
         console.log(response.data)
         setPlacementList(response.data);
@@ -92,7 +92,7 @@ function Viewplacement() {
     let re = templist.splice(index, 1);
     // console.log("hello")
     // console.log(templist)
-    axios.delete('http://localhost:4500/placementinfo/remove/' + re[0].studentemail)
+    axios.delete('https://backendcdcgmit.herokuapp.com/placementinfo/remove/' + re[0].studentemail)
       .then(res => {
         console.log(res.data)
         setMsg("News Deleted Succesfully.");
@@ -105,7 +105,7 @@ function Viewplacement() {
   }
   function approveStudents(index) {
     var temp = [...placementlist];
-    axios.put('http://localhost:4500/placementinfo/approve/' + temp[index].studentemail)
+    axios.put('https://backendcdcgmit.herokuapp.com/placementinfo/approve/' + temp[index].studentemail)
       .then(response => {
         console.log(response)
         temp[index].status = "1"
@@ -117,7 +117,7 @@ function Viewplacement() {
   }
   function rejectStudents(index) {
     var temp = [...placementlist];
-    axios.put('http://localhost:4500/placementinfo/reject/' + temp[index].studentemail)
+    axios.put('https://backendcdcgmit.herokuapp.com/placementinfo/reject/' + temp[index].studentemail)
       .then(response => {
         // console.log(response)
         temp[index].status = "-1"

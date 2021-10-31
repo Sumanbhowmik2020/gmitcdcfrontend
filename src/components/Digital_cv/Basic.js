@@ -10,7 +10,7 @@ function Basic(email) {
  if(authuser==null) authuser=email.email
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('http://localhost:4500/basicinfo/search/' +authuser)
+    axios.get('https://backendcdcgmit.herokuapp.com/basicinfo/search/' +authuser)
       .then(response => {
         console.log(response.data)
         setStudentbasicList(response.data);

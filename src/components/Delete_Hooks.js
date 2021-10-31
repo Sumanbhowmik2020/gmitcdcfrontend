@@ -16,7 +16,7 @@ function Delete() {
     //console.log(`Form submitted:`);
     //console.log(`EMAIL ID: ${eemail}`);
 
-    axios.delete('http://localhost:4500/student/remove/' + eemail)
+    axios.delete('https://backendcdcgmit.herokuapp.com/student/remove/' + eemail)
       .then(res => {
         console.log(res.data)
         setMessage('SUCCESSFULLY DELETED')

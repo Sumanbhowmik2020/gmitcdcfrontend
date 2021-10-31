@@ -89,7 +89,7 @@ function Placement(props) {
             studentprofilepic: eprofilepic,
         }
 
-        axios.post('http://localhost:4500/placementinfo/register', studentplacementinfo)
+        axios.post('https://backendcdcgmit.herokuapp.com/placementinfo/register', studentplacementinfo)
             .then(res => {
                 // console.log(res.data)
                 // sessionStorage.setItem("useremail", res.data[0].empemail)

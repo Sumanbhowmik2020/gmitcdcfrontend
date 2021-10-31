@@ -62,7 +62,7 @@ function Skillinfo(props) {
             studentsession: session,
         }
         //console.log(eprojectname)
-        axios.post('http://localhost:4500/skillinfo/update', studentskillinfo)
+        axios.post('https://backendcdcgmit.herokuapp.com/skillinfo/update', studentskillinfo)
             .then(res => {
                 // console.log(res.data)
                 // sessionStorage.setItem("useremail", res.data[0].empemail)

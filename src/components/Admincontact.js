@@ -11,7 +11,7 @@ function Admincontact() {
 
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('http://localhost:4500/contact')
+    axios.get('https://backendcdcgmit.herokuapp.com/contact')
       .then(response => {
         console.log(response.data)
         setContactList(response.data);

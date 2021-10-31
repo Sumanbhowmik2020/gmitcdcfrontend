@@ -77,7 +77,7 @@ function Academic(props) {
       studentsession: session,
     }
 
-    axios.post('http://localhost:4500/academicinfo/update', studentacademicinfo)
+    axios.post('https://backendcdcgmit.herokuapp.com/academicinfo/update', studentacademicinfo)
       .then(res => {
         // console.log(res.data)
         // sessionStorage.setItem("useremail", res.data[0].empemail)

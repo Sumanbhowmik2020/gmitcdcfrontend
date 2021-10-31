@@ -10,7 +10,7 @@ function Education(email) {
 
     //Similar to componentDidMount and componentDidUpdate
     useEffect(() => {
-        axios.get('http://localhost:4500/academicinfo/search/' + authuser)
+        axios.get('https://backendcdcgmit.herokuapp.com/academicinfo/search/' + authuser)
             .then(response => {
                 console.log(response.data)
                 setStudentacademicList(response.data);
