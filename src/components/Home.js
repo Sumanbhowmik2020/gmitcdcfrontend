@@ -16,7 +16,7 @@ const Home = () =>{
                 <PlacementStudent/>
                 {/* <BodySectionTwo /> <br /><br /><br /> <br /> */}
                 <br/>
-                <TrendingTechs />
+                {/* <TrendingTechs /> */}
 
                 {/* <BodySectionOne /> <br /><br /><br /> */}
                 <MyFooter />
