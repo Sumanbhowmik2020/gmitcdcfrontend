@@ -83,6 +83,7 @@ function Academic(props) {
         // console.log(res.data)
         // sessionStorage.setItem("useremail", res.data[0].empemail)
         // sessionStorage.setItem("userquestion", res.data[0].empquestion)
+        
         setMessage(res.data.message)
         window.alert(res.data.message);
       });
