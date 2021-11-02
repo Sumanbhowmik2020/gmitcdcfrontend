@@ -77,13 +77,14 @@ function Academic(props) {
       studentsession: session,
     }
 
+
     axios.post('https://backendcdcgmit.herokuapp.com/academicinfo/register', studentacademicinfo)
       .then(res => {
         // console.log(res.data)
         // sessionStorage.setItem("useremail", res.data[0].empemail)
         // sessionStorage.setItem("userquestion", res.data[0].empquestion)
         setMessage(res.data.message)
-                window.alert(res.data.message);
+        window.alert(res.data.message);
       });
 
     setStudentSecshoolname('')
@@ -112,139 +113,139 @@ function Academic(props) {
       <Navbars />
       <br />
       <div className="container" >
-      <div className="card carddesign " style={{ minHeight: "40rem", width: "100%", backgroundColor: "#b2ffe5", borderRadius: "1rem"  }}>
-      <div className="p-2">
-        <center><h3>Academic Info</h3></center>
-        <br />
-        <b style={{ color: "red" }}> {msg}</b>
-        <form onSubmit={handleSubmit}>
-          <Row>
-            <Col  md='6'>
-              <div className="form-group">
-                <label>Name</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter Name" value={name}
-                  required readOnly />
-              </div>
-            </Col>
-            <Col  md='6'>
-              <div className="form-group">
-                <label>Email</label>
-                <input type="email" className=" form-control form-round" placeholder="Enter Email " value={authuser}
-                  required readOnly />
-              </div>
-            </Col>
-            <Col md='6'>
-              <div className="form-group">
-                <label>Department</label>
-                <input type="department" className=" form-control form-round" placeholder="Enter Department " value={department}
-                  required readOnly />
-              </div>
-            </Col>
-            <Col md='6'>
-              <div className="form-group">
-                <label>Session</label>
-                <input type="session" className=" form-control form-round" placeholder="Enter Session " value={session}
-                  required readOnly />
-              </div>
-            </Col>
+        <div className="card carddesign " style={{ minHeight: "40rem", width: "100%", backgroundColor: "#b2ffe5", borderRadius: "1rem" }}>
+          <div className="p-2">
+            <center><h3>Academic Info</h3></center>
+            <br />
+            <b style={{ color: "red" }}> {msg}</b>
+            <form onSubmit={handleSubmit}>
+              <Row>
+                <Col md='6'>
+                  <div className="form-group">
+                    <label>Name</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter Name" value={name}
+                      required readOnly />
+                  </div>
+                </Col>
+                <Col md='6'>
+                  <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" className=" form-control form-round" placeholder="Enter Email " value={authuser}
+                      required readOnly />
+                  </div>
+                </Col>
+                <Col md='6'>
+                  <div className="form-group">
+                    <label>Department</label>
+                    <input type="department" className=" form-control form-round" placeholder="Enter Department " value={department}
+                      required readOnly />
+                  </div>
+                </Col>
+                <Col md='6'>
+                  <div className="form-group">
+                    <label>Session</label>
+                    <input type="session" className=" form-control form-round" placeholder="Enter Session " value={session}
+                      required readOnly />
+                  </div>
+                </Col>
 
-          </Row>
-          <Row>
-            <Col md='4'>
-              <center><h6>10 th Class</h6></center>
+              </Row>
+              <Row>
+                <Col md='4'>
+                  <center><h6>10 th Class</h6></center>
 
-              <div className="form-group">
-                <label>School Name</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter School Name " value={esecshoolname}
-                  onChange={onChangeStudentSecschoolname}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Board Name</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter Board Name  " value={esecboardname}
-                  onChange={onChangeStudentSecboardname}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Passing Year</label>
-                <input type="year" className=" form-control form-round" placeholder="Enter Passing Year " value={esecpassingyear}
-                  onChange={onChangeStudentSecpassingyear}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Marks</label>
-                <input type="marks" className=" form-control form-round" placeholder="marks in percentage " value={esecpercentage}
-                  onChange={onChangeStudentSecpercentage}
-                  required />
-              </div>
-            </Col>
-            <Col md='4'>
-              <center><h6>12 th Class</h6></center>
-              <div className="form-group">
-                <label>School Name</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter School Name " value={ehsshoolname}
-                  onChange={onChangeStudentHsschoolname}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Board Name</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter Board Name " value={ehsboardname}
-                  onChange={onChangeStudentHsboardname}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Passing Year</label>
-                <input type="year" className=" form-control form-round" placeholder="Enter Passing Year " value={ehspassingyear}
-                  onChange={onChangeStudentHspassingyear}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Marks</label>
-                <input type="marks" className=" form-control form-round" placeholder="Enter Marks in Percentage " value={ehspercentage}
-                  onChange={onChangeStudentHspercentage}
-                  required />
-              </div>
-            </Col>
-            <Col md='4'>
-              <center><h6>College</h6></center>
-              <div className="form-group">
-                <label>College Name</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter College Name " value={ecolshoolname}
-                  onChange={onChangeStudentColschoolname}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>University</label>
-                <input type="name" className=" form-control form-round" placeholder="Enter University Name " value={ecolboardname}
-                  onChange={onChangeStudentColboardname}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Passing Year</label>
-                <input type="year" className=" form-control form-round" placeholder="Enter Passing Year " value={ecolpassingyear}
-                  onChange={onChangeStudentColpassingyear}
-                  required />
-              </div>
-              <div className="form-group">
-                <label>Marks</label>
-                <input type="marks" className=" form-control form-round" placeholder="Enter Marks in Percentage " value={ecolpercentage}
-                  onChange={onChangeStudentColpercentage}
-                  required />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-          <div style={{ display: "flex", justifyContent: 'flex-end'}}>
-            <input type="submit" className="btn btn-primary btn-block allign-right flex-end " value="Submit" style={{ height: "3rem", width: "6rem" ,allign:"right"}}  />
+                  <div className="form-group">
+                    <label>School Name</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter School Name " value={esecshoolname}
+                      onChange={onChangeStudentSecschoolname}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Board Name</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter Board Name  " value={esecboardname}
+                      onChange={onChangeStudentSecboardname}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Passing Year</label>
+                    <input type="year" className=" form-control form-round" placeholder="Enter Passing Year " value={esecpassingyear}
+                      onChange={onChangeStudentSecpassingyear}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Marks</label>
+                    <input type="marks" className=" form-control form-round" placeholder="marks in percentage " value={esecpercentage}
+                      onChange={onChangeStudentSecpercentage}
+                      required />
+                  </div>
+                </Col>
+                <Col md='4'>
+                  <center><h6>12 th Class</h6></center>
+                  <div className="form-group">
+                    <label>School Name</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter School Name " value={ehsshoolname}
+                      onChange={onChangeStudentHsschoolname}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Board Name</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter Board Name " value={ehsboardname}
+                      onChange={onChangeStudentHsboardname}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Passing Year</label>
+                    <input type="year" className=" form-control form-round" placeholder="Enter Passing Year " value={ehspassingyear}
+                      onChange={onChangeStudentHspassingyear}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Marks</label>
+                    <input type="marks" className=" form-control form-round" placeholder="Enter Marks in Percentage " value={ehspercentage}
+                      onChange={onChangeStudentHspercentage}
+                      required />
+                  </div>
+                </Col>
+                <Col md='4'>
+                  <center><h6>College</h6></center>
+                  <div className="form-group">
+                    <label>College Name</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter College Name " value={ecolshoolname}
+                      onChange={onChangeStudentColschoolname}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>University</label>
+                    <input type="name" className=" form-control form-round" placeholder="Enter University Name " value={ecolboardname}
+                      onChange={onChangeStudentColboardname}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Passing Year</label>
+                    <input type="year" className=" form-control form-round" placeholder="Enter Passing Year " value={ecolpassingyear}
+                      onChange={onChangeStudentColpassingyear}
+                      required />
+                  </div>
+                  <div className="form-group">
+                    <label>Marks</label>
+                    <input type="marks" className=" form-control form-round" placeholder="Enter Marks in Percentage " value={ecolpercentage}
+                      onChange={onChangeStudentColpercentage}
+                      required />
+                  </div>
+                </Col>
+              </Row>
+              <Row>
+                <div style={{ display: "flex", justifyContent: 'flex-end' }}>
+                  <input type="submit" className="btn btn-primary btn-block allign-right flex-end " value="Submit" style={{ height: "3rem", width: "6rem", allign: "right" }} />
+                </div>
+              </Row>
+
+            </form>
           </div>
-          </Row>
-
-        </form>
-        </div>
         </div>
       </div>
-     
-      
+
+
 
     </div>
   )
