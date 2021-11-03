@@ -18,6 +18,7 @@ function PlacementStudent() {
                 console.log(error);
             })
     }, [])
+    
 
     function viewStudent() {
         return placementlist.map((currentrow, index) => {
