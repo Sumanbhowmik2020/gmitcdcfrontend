@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Navbars from "./Navbars";
 import 'bootstrap/dist/css/bootstrap.css';
+import Table from 'react-bootstrap/Table';
+import { Container } from 'react-bootstrap';
+
 
 function DisplayAll() {
   const [studentlist, setStudentList] = useState([]);
@@ -10,7 +13,7 @@ function DisplayAll() {
   useEffect(() => {
     axios.get('https://backendcdcgmit.herokuapp.com/student')
       .then(response => {
-        console.log(response.data)
+        // console.log(response.data)
         setStudentList(response.data);
       })
       .catch((error) => {
@@ -22,12 +25,12 @@ function DisplayAll() {
     return studentlist.map((currentrow, index) => {
       return (
         <tr key={index}>
-          <td style={{border:"1px solid black", align:"center"}}>{currentrow.studentname}</td>
-          <td style={{border:"1px solid black", align:"center"}}>{currentrow.studentemail}</td>
-          <td style={{border:"1px solid black", align:"center"}}>{currentrow.studentmobile}</td>
-          <td style={{border:"1px solid black", align:"center"}}>{currentrow.studentdepartment}</td>
-          <td style={{border:"1px solid black", align:"center"}}>{currentrow.studentrollnumber}</td>
-          <td style={{border:"1px solid black", align:"center"}}>{currentrow.studentsession}</td> 
+          <td >{currentrow.studentname}</td>
+          <td >{currentrow.studentemail}</td>
+          <td >{currentrow.studentmobile}</td>
+          <td >{currentrow.studentdepartment}</td>
+          <td >{currentrow.studentrollnumber}</td>
+          <td >{currentrow.studentsession}</td>
         </tr>
       );
     });
@@ -37,24 +40,26 @@ function DisplayAll() {
     <div>
       <Navbars />
       <br />
-      <h3>ALL EMPLOYEE DETAILS</h3>
-      <table border="1" align="center">
-        <thead>
-          <tr>
-            <th style={{border:"1px solid black", align:"center"}}>Name</th>
-            <th style={{border:"1px solid black", align:"center"}}>Email</th>
-            <th style={{border:"1px solid black", align:"center"}}>Mobile</th>
-            <th style={{border:"1px solid black", align:"center"}}>Department</th>
-            <th style={{border:"1px solid black", align:"center"}}>RollNumber</th>
-            <th style={{border:"1px solid black", align:"center"}}>Session</th>
-            
-          </tr>
-        </thead>
+      <h3><center>ALL USER DETAILS</center></h3>
+      <Container style={{ overflowX: 'auto' }}>
+        <Table striped bordered hover variant="white">
+          <thead>
+            <tr>
+              <th >Name</th>
+              <th >Email</th>
+              <th >Mobile</th>
+              <th >Department</th>
+              <th >RollNumber</th>
+              <th >Session</th>
 
-        <tbody>
-          {viewStudentList()}
-        </tbody>
-      </table>
+            </tr>
+          </thead>
+
+          <tbody>
+            {viewStudentList()}
+          </tbody>
+        </Table>
+      </Container>
     </div>
   )
 }
