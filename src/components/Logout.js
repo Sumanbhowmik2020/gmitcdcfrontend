@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 function Logout() {
   let authuser = sessionStorage.getItem('Key_Veriable')
   console.log(authuser)
-  if (authuser === 'ADMIN' || authuser === 'USER') {
+  if (authuser === 'ADMIN' || authuser === 'USER'||authuser ==='HR') {
     sessionStorage.removeItem('Key_Veriable')
     sessionStorage.removeItem('useremail')
     sessionStorage.removeItem('username')

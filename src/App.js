@@ -33,6 +33,7 @@ import Viewhr from './components/Viewhr';
 import Hrlogin from './components/Hrlogin';
 import HrAfterLogin from './components/HrAfterLogin';
 import UpdateBasicinfo from './components/UpdateBasicinfo';
+import Viewskill from './components/Viewskill';
 
 
 const App = () =>{
@@ -67,6 +68,7 @@ const App = () =>{
           <Route exact path="/hrlogin" component={Hrlogin} />
           <Route exact path="/hrafterlogin" component={HrAfterLogin} />
           <Route exact path="/updatebasicinfo" component={UpdateBasicinfo} />
+          <Route exact path="/viewallskill" component={Viewskill} />
 
 
 

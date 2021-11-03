@@ -34,6 +34,7 @@ function Navbars() {
             <Nav.Link className='unav' as={Link} to="/Viewplacement">VIEW Placement</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/Admincontact">Message</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/allhr">ALL HR</Nav.Link>
+            <Nav.Link className='unav' as={Link} to="/viewallskill">STUDENT SKILL</Nav.Link>
 
           </Nav>
         </Navbar.Collapse>
