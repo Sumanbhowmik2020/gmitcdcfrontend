@@ -5,15 +5,17 @@ import Navbars from './Navbars';
 import Table from 'react-bootstrap/Table';
 import { Container } from 'react-bootstrap';
 
-function DisplayAll() {
-  const [studentlist, setStudentList] = useState([]);
+function Viewadmininternship() {
+  const [internshiplist, setInternshipList] = useState([]);
+  // const [newslist, setNewsList] = useState([]);
+  const [msg, setMsg] = useState("");
 
   //Similar to componentDidMount and componentDidUpdate
   useEffect(() => {
-    axios.get('https://backendcdcgmit.herokuapp.com/student/')
+    axios.get('https://backendcdcgmit.herokuapp.com/jobinfo/')
       .then(response => {
-        // console.log(response.data)
-        setStudentList(response.data);
+        console.log(response.data)
+        setInternshipList(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -23,21 +25,21 @@ function DisplayAll() {
 
 
 
-  function viewStudentList() {
-    return studentlist.map((currentrow, index) => {
+  function viewInternshipList() {
+    return internshiplist.map((currentrow, index) => {
       if (currentrow.status === "0") {
         return (
           <tr key={index}>
             {/* <td>{currentrow.nname}</td> */}
 
-    <td >{currentrow.studentname}</td>
-          <td >{currentrow.studentemail}</td>
-          <td >{currentrow.studentmobile}</td>
-          <td >{currentrow.studentdepartment}</td>
-          <td >{currentrow.studentrollnumber}</td>
-          <td >{currentrow.studentsession}</td>
-
-            <td><button onClick={() => approveStudents(index)} className="btn btn-success" >Approve</button> </td>
+            <td>{currentrow.studentname}</td>
+            <td>{currentrow.studentemail}</td>
+            <td>{currentrow.studentdept}</td>
+            <td>{currentrow.studentsession}</td>
+            <td>{currentrow.studentskillname}</td>
+            <td>{currentrow.studentdate}</td>
+            <td><img src={currentrow.studentprofilepic} width={60} /></td>
+            <td><button onClick={() => approveStudents(index)} className="btn btn-success" >View</button> </td>
             <a class="mailto" href={`mailto:${currentrow.studentemail}`}>Mail</a>
           </tr>
         );
@@ -45,14 +47,15 @@ function DisplayAll() {
       else if (currentrow.status === "1") {
         return (
           <tr key={index}>
-            <td >{currentrow.studentname}</td>
-          <td >{currentrow.studentemail}</td>
-          <td >{currentrow.studentmobile}</td>
-          <td >{currentrow.studentdepartment}</td>
-          <td >{currentrow.studentrollnumber}</td>
-          <td >{currentrow.studentsession}</td>
-
-            <td><button onClick={() => rejectStudents(index)} className="btn btn-warning" >Deny</button> </td>
+            <td>{currentrow.studentname}</td>
+            <td>{currentrow.studentemail}</td>
+            <td>{currentrow.studentdept}</td>
+            <td>{currentrow.studentsession}</td>
+            <td>{currentrow.studentskillname}</td>
+            <td>{currentrow.studentcompany}</td>
+            <td>{currentrow.studentdate}</td>
+            <td><img src={currentrow.studentprofilepic} width={60} /></td>
+            <td><button onClick={() => rejectStudents(index)} className="btn btn-warning" >Hide</button> </td>
             <a class="mailto" href={`mailto:${currentrow.studentemail}`}>Mail</a>
           </tr>
         );
@@ -61,15 +64,15 @@ function DisplayAll() {
       else if (currentrow.status === "-1") {
         return (
           <tr key={index}>
-             <td >{currentrow.studentname}</td>
-          <td >{currentrow.studentemail}</td>
-          <td >{currentrow.studentmobile}</td>
-          <td >{currentrow.studentdepartment}</td>
-          <td >{currentrow.studentrollnumber}</td>
-          <td >{currentrow.studentsession}</td>
-
-           
-            <td><button onClick={() => approveStudents(index)} className="btn btn-success" >Approve</button> </td>
+            <td>{currentrow.studentname}</td>
+            <td>{currentrow.studentemail}</td>
+            <td>{currentrow.studentdept}</td>
+            <td>{currentrow.studentsession}</td>
+            <td>{currentrow.studentskillname}</td>
+            <td>{currentrow.studentcompany}</td>
+            <td>{currentrow.studentdate}</td>
+            <td><img src={currentrow.studentprofilepic} width={60} /></td>
+            <td><button onClick={() => approveStudents(index)} className="btn btn-success" >View</button> </td>
             <a class="mailto" href={`mailto:${currentrow.studentemail}`}>Mail</a>
           </tr>
         );
@@ -79,7 +82,7 @@ function DisplayAll() {
 
 
   // function removeRow(index) {
-  //   var templist = [...studentlist;
+  //   var templist = [...internshiplist];
   //   let re = templist.splice(index, 1);
   //   // console.log("hello")
   //   // console.log(templist)
@@ -87,7 +90,7 @@ function DisplayAll() {
   //     .then(res => {
   //       console.log(res.data)
   //       setMsg("News Deleted Succesfully.");
-  //       setStudentList(templist)
+  //       setInternshipList(templist)
   //     })
   //     .catch(err => {
   //       console.log(err)
@@ -95,24 +98,24 @@ function DisplayAll() {
   //     })
   // }
   function approveStudents(index) {
-    var temp = [...studentlist];
-    axios.put('https://backendcdcgmit.herokuapp.com/student/approve/' + temp[index]._id)
+    var temp = [...internshiplist];
+    axios.put('https://backendcdcgmit.herokuapp.com/jobinfo/approve/' + temp[index]._id)
       .then(response => {
         console.log(response)
         temp[index].status = "1"
-        setStudentList(temp);
+        setInternshipList(temp);
       })
       .catch(err => {
         console.log(err);
       })
   }
   function rejectStudents(index) {
-    var temp = [...studentlist];
-    axios.put('https://backendcdcgmit.herokuapp.com/student/reject/' + temp[index]._id)
+    var temp = [...internshiplist];
+    axios.put('https://backendcdcgmit.herokuapp.com/jobinfo/reject/' + temp[index]._id)
       .then(response => {
         // console.log(response)
         temp[index].status = "-1"
-        setStudentList(temp);
+        setInternshipList(temp);
       })
       .catch(err => {
         console.log(err);
@@ -141,19 +144,23 @@ function DisplayAll() {
         <Table striped bordered hover variant="white">
           <thead>
             <tr>
-              <th >Name</th>
-              <th >Email</th>
-              <th >Mobile</th>
-              <th >Department</th>
-              <th >RollNumber</th>
-              <th >Session</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Department</th>
+              <th>Session</th>
+              <th>Skill Name</th>
+              <th>Company Name</th>
+              <th>Interview Date<br />
+                (YYYY-MM-DD)
+              </th>
+              <th>PROFILE PIC</th>
               <th>Action</th>
               <th>Mail</th>
             </tr>
           </thead>
 
           <tbody>
-            {viewStudentList()}
+            {viewInternshipList()}
           </tbody>
         </Table>
       </div>
@@ -162,4 +169,4 @@ function DisplayAll() {
 }
 
 
-export default DisplayAll
+export default Viewadmininternship

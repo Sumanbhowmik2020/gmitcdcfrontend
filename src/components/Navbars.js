@@ -12,6 +12,7 @@ import img1 from '../img/gmit.png';
 function Navbars() {
   let authuser = sessionStorage.getItem('Key_Veriable')
   let name = sessionStorage.getItem('username')
+  let hrcompany = sessionStorage.getItem('hrcompany')
   //console.log(authuser)
   if (authuser === 'ADMIN') {
     return (
@@ -35,6 +36,7 @@ function Navbars() {
             <Nav.Link className='unav' as={Link} to="/Admincontact">Message</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/allhr">ALL HR</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/viewallskill">STUDENT SKILL</Nav.Link>
+            <Nav.Link className='unav' as={Link} to="/Viewadmininternship">INTERNSHIP LIST</Nav.Link>
 
           </Nav>
         </Navbar.Collapse>
@@ -90,11 +92,12 @@ function Navbars() {
           <Nav className="mr-auto">
             {/* <Nav.Link href="#home">Home</Nav.Link> */}
             <Nav.Link className='unav' as={Link} to="/hrafterlogin">HR HOME</Nav.Link>
-            <Nav.Link className='unav' as={Link} to="/Searchresume">SEARCH RESUME</Nav.Link>
+            <Nav.Link className='unav' as={Link} to="/Hrsearchresume">SEARCH RESUME</Nav.Link>
+            <Nav.Link className='unav' as={Link} to="/Displayinternship">SELECTED STUDENT</Nav.Link>
 
           </Nav>
         </Navbar.Collapse>
-        {/* <Nav.Link className='unav' as={Link} to="/userafterlogin">{name}</Nav.Link> */}
+        <Nav.Link className='unav' as={Link} to="/hrafterlogin">{hrcompany}</Nav.Link>
         <Nav.Link className='unav' as={Link} to="/logout" style={{ color: 'red' }}>LOGOUT</Nav.Link>
 
       </Navbar>
@@ -115,7 +118,7 @@ function Navbars() {
             <Nav.Link className='unav' as={Link} to="/" style={{}}>Home</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/Login">Login</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/Signup">Signup</Nav.Link>
-            {/* <Nav.Link className='unav' as={Link} to="/Aboutus">aboutus</Nav.Link> */}
+            <Nav.Link className='unav' as={Link} to="/Internshipstudent">Internship</Nav.Link>
             <Nav.Link className='unav' as={Link} to="/ContactUS">Contactus</Nav.Link>
           </Nav>
         </Navbar.Collapse>

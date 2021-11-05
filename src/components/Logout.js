@@ -13,6 +13,7 @@ function Logout() {
     sessionStorage.removeItem('usersession')
     sessionStorage.removeItem('hremail')
     sessionStorage.removeItem('hrname')
+    sessionStorage.removeItem('hrcompany')
   }
   return (<Redirect to="/" />)
 }

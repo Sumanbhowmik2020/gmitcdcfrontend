@@ -43,6 +43,7 @@ let Hrlogin = (props) => {
         sessionStorage.setItem("Key_Veriable", 'HR')
         sessionStorage.setItem("hremail", res.data[0].hremail)
         sessionStorage.setItem("hrname", res.data[0].hrname)
+        sessionStorage.setItem("hrcompany", res.data[0].hrcompany)
        
         window.alert("Login Sucessful")
         props.history.push('/hrafterlogin')
