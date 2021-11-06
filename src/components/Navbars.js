@@ -123,8 +123,8 @@ function Navbars() {
           </Nav>
         </Navbar.Collapse>
         <Form inline>
-        <Nav.Link className='unav' as={Link} to="/hrlogin">HR LOGIN</Nav.Link>
-          <Nav.Link className='unav' as={Link} to="/adminlogin">ADMIN LOGIN</Nav.Link>
+        <Nav.Link className='unav' as={Link} to="/hrlogin">HR </Nav.Link>
+          <Nav.Link className='unav' as={Link} to="/adminlogin">ADMIN </Nav.Link>
         </Form>
       </Navbar>
     )
