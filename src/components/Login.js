@@ -126,6 +126,7 @@ let Login = (props) => {
                   <form onSubmit={handleSubmit}>
                     <Row className="d-flex justify-content-center py-3">
                       <h3><center>STUDENT LOGIN</center></h3>
+                      <b style={{ color: "red" }}> <center>{msg}</center> </b>
                     </Row>
                     <Row>
                       <Row>
