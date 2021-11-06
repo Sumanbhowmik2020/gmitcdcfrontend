@@ -37,6 +37,7 @@ function Viewadmininternship() {
             <td>{currentrow.studentdept}</td>
             <td>{currentrow.studentsession}</td>
             <td>{currentrow.studentskillname}</td>
+            <td>{currentrow.studentcompany}</td>
             <td>{currentrow.studentdate}</td>
             <td><img src={currentrow.studentprofilepic} width={60} /></td>
             <td><button onClick={() => approveStudents(index)} className="btn btn-success" >View</button> </td>
