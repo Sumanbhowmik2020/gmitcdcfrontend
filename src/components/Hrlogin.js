@@ -44,7 +44,7 @@ let Hrlogin = (props) => {
         sessionStorage.setItem("hremail", res.data[0].hremail)
         sessionStorage.setItem("hrname", res.data[0].hrname)
         sessionStorage.setItem("hrcompany", res.data[0].hrcompany)
-       
+
         window.alert("Login Sucessful")
         props.history.push('/hrafterlogin')
       })
@@ -59,9 +59,9 @@ let Hrlogin = (props) => {
 
   // if (sessionStorage.getItem('useremail'))        return <Redirect to="/userafterlogin" />
 
- 
+
   return (
-    <div style={{backgroundColor:"#F0EEBA"}}>
+    <div style={{ backgroundColor: "#F0EEBA" }}>
       <Navbars />
 
       <br />
@@ -69,55 +69,56 @@ let Hrlogin = (props) => {
 
       <div className="d-flex justify-content-center align-items-center fontstyle bodycss" >
         <div className="container"  >
-        <Row>
-                    <Col md="4"></Col>
-                    <Col md="4">
-          <div className="card carddesign " style={{ height: "30rem", width: "100%", backgroundColor: "#b2ffe5", borderRadius: "1rem"  }}>
-            <div className="p-4">
-              <form onSubmit={handleSubmit}>
-                <Row className="d-flex justify-content-center py-3">
-                <h3><center>HR LOGIN</center></h3>
-                </Row>
-                <Row>
-                <Col md='12'>
-                <div className="form-group">
-                  <label><b>Email ID</b></label>
-                  <input type="email" className=" form-control form-round" placeholder="Enter email" name="email" value={eemail}
-                    onChange={onChangeHrEmail} />
-                </div>
-                </Col>
-                </Row>
-                <br/>
-                <Row>
-                <Col md='12'>
-                <div className="form-group">
-                  <label><b>Password</b></label>
-                  <input type="password" className=" form-control form-round" placeholder="Enter password" name="password" value={epassword}
-                    onChange={onChangeHrPassword} />
-                </div>
-                </Col>
-                </Row>
-                <br />
-                <Row>
-                <Col md='12'>
-                <button type="submit" className="btn btn-primary btn-block rounded-pill form-round" >Submit</button>
-                </Col>
-               </Row>
-              </form>
-            </div>
-          </div>
-          </Col>
-                    <Col md="4"></Col>
+          <Row>
+            <Col md="4"></Col>
+            <Col md="4">
+              <div className="card carddesign " style={{ height: "30rem", width: "100%", backgroundColor: "#b2ffe5", borderRadius: "1rem" }}>
+                <div className="p-4">
+                  <form onSubmit={handleSubmit}>
+                    <Row className="d-flex justify-content-center py-3">
+                      <h3><center>HR LOGIN</center></h3>
+                      <b style={{ color: "red" }}> <center>{msg}</center> </b>
                     </Row>
+                    <Row>
+                      <Col md='12'>
+                        <div className="form-group">
+                          <label><b>Email ID</b></label>
+                          <input type="email" className=" form-control form-round" placeholder="Enter email" name="email" value={eemail}
+                            onChange={onChangeHrEmail} />
+                        </div>
+                      </Col>
+                    </Row>
+                    <br />
+                    <Row>
+                      <Col md='12'>
+                        <div className="form-group">
+                          <label><b>Password</b></label>
+                          <input type="password" className=" form-control form-round" placeholder="Enter password" name="password" value={epassword}
+                            onChange={onChangeHrPassword} />
+                        </div>
+                      </Col>
+                    </Row>
+                    <br />
+                    <Row>
+                      <Col md='12'>
+                        <button type="submit" className="btn btn-primary btn-block rounded-pill form-round" >Submit</button>
+                      </Col>
+                    </Row>
+                  </form>
+                </div>
+              </div>
+            </Col>
+            <Col md="4"></Col>
+          </Row>
         </div>
       </div>
 
-      
+
       <br />
       <br />
-      
+
       <br />
-      
+
       <br />
       <br />
       <br />
